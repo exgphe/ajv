@@ -24,7 +24,7 @@ export function checkUnknownRules(it: SchemaCxt, schema: AnySchema = it.schema):
   if (typeof schema === "boolean") return
   const rules = self.RULES.keywords
   for (const key in schema) {
-    if (!rules[key] && !key.startsWith("x-")) checkStrictMode(it, `unknown keyword: "${key}"`)
+    if (!rules[key]) checkStrictMode(it, `unknown keyword: "${key}"`)
   }
 }
 
